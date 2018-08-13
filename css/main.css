@@ -18,8 +18,17 @@
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
+#addContactBtn {
+    margin-left: 10px;
+}
+
+#contactsForm {
+    width: 100%;
+    clear: both;
+    display: inline-flex;
+}
+
 table.blueTable {
-    margin-top: 20px;
     font-family: "Comic Sans MS", cursive, sans-serif;
     border: 1px solid #1C6EA4;
     background-color: #EEEEEE;
@@ -37,10 +46,16 @@ table.blueTable th {
 table.blueTable tbody td {
     font-size: 13px;
     font-weight: bold;
+    height: 30px;
 }
 
-table.blueTable tr:nth-child(even) {
+table.blueTable tbody tr:nth-child(even) {
     background: #D0E4F5;
+}
+
+table.blueTable tbody tr:hover {
+    background: yellow;
+    cursor: pointer;
 }
 
 table.blueTable thead {
@@ -77,4 +92,69 @@ table.blueTable tfoot .links a {
     color: #FFFFFF;
     padding: 2px 8px;
     border-radius: 5px;
+}
+
+#contactFormWrapper {
+    box-sizing: border-box;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 10px;
+}
+
+#contactFormWrapper input[type=text],
+#contactFormWrapper input[type=email] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+
+#contactFormWrapper .column {
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+    padding: 20px;
+}
+
+.detais .column {
+    float: left;
+    width: 50%;
+    margin-top: 0;
+    padding: 0;
+}
+
+#contactFormWrapper #saveContactBtn {
+    float: right;
+    position: relative;
+    top: 10%;
+}
+
+#contactFormWrapper .row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.detais h1 {
+    font-weight: bold;
+}
+
+.detais .modal-body {
+    height: 230px;
+}
+
+.required {
+    border-color: red !important;
+}
+
+@media screen and (max-width: 600px) {
+    #contactFormWrapper .column,
+    .detais .column,
+    #contactFormWrapper input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
 }

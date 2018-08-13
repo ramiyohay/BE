@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Followers</title>
+    <title>Contacts</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -14,19 +14,66 @@
 </head>
 
 <body>
+    <form action="javascript:void(0);" id="contactsForm">
+        <table class="blueTable" id="contactsTable" style="width: 30%">
+            <thead>
+                <tr>
+                    <th>Contact Image</th>
+                    <th>Contact Name</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button class="button" id='addContactBtn' style="max-width: 100px;max-height: 50px"><i class="fa fa-plus"></i></button>
+    </form>
 
-    <button class="button" id='addContactBtn'><i class="fa fa-plus"></i>&nbsp Add Contact</button>
+    <div id="contactForm" style="display: none">
+        <div id="contactFormWrapper">
+            <div style="text-align:center">
+                <h2>Add New Contact</h2>
+            </div>
+            <div class="row" align="left">
+                <div class="column">
+                    <form action="javascript:void(0);">
+                        <label for="fname">First Name*</label>
+                        <input type="text" id="fname" name="firstname" placeholder="Contact name..." required>
+                        <label for="phone">Phone Number*</label>
+                        <input type="text" id="phone" name="laphonestname" placeholder="Contact phone..." required>
+                        <label for="imageUpload">Upload Image</label>
+                        <input type='file' onchange="contactsWorker.readURL(this);" id="imageUpload" accept="image/*" />
 
-    <table class="blueTable" id="contactsTable">
-        <thead>
-            <tr>
-                <th>Contact Picture</th>
-                <th>Contact Name</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
+                    </form>
+                </div>
+                <div class="column">
+                    <form action="javascript:void(0);">
+                        <label for="lname">Last Name*</label>
+                        <input type="text" id="lname" name="lastname" placeholder="Contact last name..." required>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Contact Email..." required>
+                        <img id="contactImage" width="200" height="200" style="margin-top: 20px" />
+                    </form>
+                </div>
+                <div>
+                    <button class="button" id='saveContactBtn'><i class="fa fa-plus"></i>&nbsp Add Contact</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="contactDetails" style="display: none">
+        <div id="contactDetailsWrapper">
+            <div class="column" style="text-align: center;">
+                <h1></h1>
+                <h3 id="phone"></h3>
+                <h3 id="email"></h3>
+            </div>
+            <div class="column">
+                <img width="200" height="200" style="float:right" />
+            </div>
+        </div>
+    </div>
 
     <script>
         $(document).ready(function() {
