@@ -69,6 +69,8 @@ router.post('/add', function (req, res) {
         records.push(contact);
 
         mysqlConnection.query(sqlInsert, [records], function (err, result) {
+            if (err) throw err;
+
             console.log("record inserted for " + req.body.fname + " " + req.body.lname);
             req.body.id = newId;
             res.json(req.body).end();
